@@ -256,3 +256,26 @@ mod tests {
         ));
     }
 }
+
+#[cfg(test)]
+mod fixture_tests {
+    use super::*;
+
+    /// Probe JSON written by the real image under QEMU (OVMF, Secure Boot on).
+    const QEMU: &str = include_str!("../../../testdata/fixtures/probe-qemu-q35-secureboot.json");
+
+    #[test]
+    fn qemu_fixture_round_trips_and_identify_output_is_recognised() {
+        let r: ProbeReport = serde_json::from_str(QEMU).unwrap();
+        assert_eq!(r.host.secure_boot, Some(true));
+        assert_eq!(r.host.lockdown.as_deref(), Some("integrity"));
+        let reparsed = lsblk::parse(&r.lsblk_raw).unwrap();
+        assert_eq!(reparsed.iter().filter(|d| d.is_internal()).count(), 2);
+        for d in r.disks.iter().filter(|d| d.internal) {
+            for run in &d.identify {
+                let program = run.command.split(' ').next().unwrap();
+                assert!(looks_ok(program, &run.stdout), "{}", run.command);
+            }
+        }
+    }
+}

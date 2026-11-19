@@ -1,0 +1,12 @@
+#!/bin/sh
+# Mounts the ATECH-DATA partition and runs atw. Started from root's
+# .bash_profile on tty1. Output is copied to the serial port for QEMU tests.
+mkdir -p /mnt/data
+if ! mountpoint -q /mnt/data; then
+	mount -o noatime LABEL=ATECH-DATA /mnt/data 2>/dev/null ||
+		echo "ATECH-DATA partition not found: results will be saved to /tmp only."
+fi
+/usr/local/bin/atw 2>&1 | tee /tmp/atw-last.log
+timeout 5 sh -c 'cat /tmp/atw-last.log > /dev/ttyS0' 2>/dev/null || true
+echo
+echo "Finished. Type 'atw probe' to run it again, or 'poweroff' to shut down."

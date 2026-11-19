@@ -1,0 +1,16 @@
+# Drive tools (read-only use in Phase 1)
+hdparm
+nvme-cli
+mmc-utils
+smartmontools
+# Boot and Secure Boot state
+mokutil
+# Networking for sync (nmtui)
+network-manager
+ca-certificates
+# Basics
+util-linux
+e2fsprogs
+pciutils
+usbutils
+less

@@ -31,6 +31,10 @@
           pkgs.swtpm
           pkgs.ripgrep
           pkgs.jq
+          pkgs.e2fsprogs
+          pkgs.util-linux
+          pkgs.shellcheck
+          pkgs.socat
         ];
         # OVMF firmware with Secure Boot and Microsoft keys enrolled.
         OVMF_CODE = "${pkgs.OVMFFull.fd}/FV/OVMF_CODE.ms.fd";

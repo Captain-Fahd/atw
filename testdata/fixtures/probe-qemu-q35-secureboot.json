@@ -1,0 +1,82 @@
+{
+  "schema": "atw-probe/1",
+  "tool_version": "0.1.0",
+  "generated_at": "2026-11-19T13:37:49Z",
+  "host": {
+    "uefi": true,
+    "secure_boot": true,
+    "lockdown": "integrity",
+    "cmdline": "BOOT_IMAGE=/live/vmlinuz-6.12.117+deb13-amd64 boot=live live-config.noautologin atw.live=1 quiet console=ttyS0,115200 console=tty0 findiso=",
+    "atw_live_flag": true,
+    "kernel": "6.12.117+deb13-amd64",
+    "vendor": "QEMU",
+    "product": "Standard PC (Q35 + ICH9, 2009)",
+    "serial": null,
+    "bios_version": "unknown"
+  },
+  "disks": [
+    {
+      "path": "/dev/sda",
+      "media": "ata",
+      "tran": "sata",
+      "model": "ATW-TEST-SATA",
+      "serial": "ATWSATA0001",
+      "size_bytes": 4294967296,
+      "rotational": true,
+      "internal": true,
+      "boot_device": false,
+      "identify": [
+        {
+          "command": "hdparm -I /dev/sda",
+          "code": 0,
+          "stdout": "\n/dev/sda:\n\nATA device, with non-removable media\n\tModel Number:       ATW-TEST-SATA                           \n\tSerial Number:      ATWSATA0001         \n\tFirmware Revision:  2.5+    \nStandards:\n\tUsed: ATA/ATAPI-5 published, ANSI INCITS 340-2000 \n\tSupported: 7 6 5 4 & some of 6\nConfiguration:\n\tLogical\t\tmax\tcurrent\n\tcylinders\t8322\t8322\n\theads\t\t16\t16\n\tsectors/track\t63\t63\n\t--\n\tCHS current addressable sectors:     8388576\n\tLBA    user addressable sectors:     8388608\n\tLBA48  user addressable sectors:     8388608\n\tLogical  Sector size:                   512 bytes\n\tPhysical Sector size:                   512 bytes\n\tdevice size with M = 1024*1024:        4096 MBytes\n\tdevice size with M = 1000*1000:        4294 MBytes (4 GB)\n\tcache/buffer size  = 256 KBytes (type=DualPortCache)\nCapabilities:\n\tLBA, IORDY(cannot be disabled)\n\tQueue depth: 32\n\tStandby timer values: spec'd by Vendor\n\tR/W multiple sector transfer: Max = 16\tCurrent = 16\n\tDMA: sdma0 sdma1 sdma2 mdma0 mdma1 mdma2 udma0 udma1 udma2 udma3 udma4 *udma5 \n\t     Cycle time: min=120ns recommended=120ns\n\tPIO: pio0 pio1 pio2 pio3 pio4 \n\t     Cycle time: no flow control=120ns  IORDY flow control=120ns\nCommands/features:\n\tEnabled\tSupported:\n\t   *\tSMART feature set\n\t   *\tWrite cache\n\t   *\tNOP cmd\n\t   *\t48-bit Address feature set\n\t   *\tMandatory FLUSH_CACHE\n\t   *\tFLUSH_CACHE_EXT\n\t   *\tNative Command Queueing (NCQ)\nHW reset results:\n\tCBLID- above Vih\n\tDevice num = 0\nIntegrity word not set (found 0x0000, expected 0x98a5)\n",
+          "stderr": "SG_IO: bad/missing sense data, sb[]:  f0 00 0b 04 41 e0 01 0a 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n",
+          "ok": true
+        }
+      ],
+      "passthrough_ok": true
+    },
+    {
+      "path": "/dev/sdb",
+      "media": "usb",
+      "tran": "usb",
+      "model": "QEMU HARDDISK",
+      "serial": "1-0000:00:03.0-1",
+      "size_bytes": 1047527424,
+      "rotational": true,
+      "internal": false,
+      "boot_device": true,
+      "identify": [],
+      "passthrough_ok": null
+    },
+    {
+      "path": "/dev/nvme0n1",
+      "media": "nvme",
+      "tran": "nvme",
+      "model": "QEMU NVMe Ctrl",
+      "serial": "ATWNVME0001",
+      "size_bytes": 4294967296,
+      "rotational": false,
+      "internal": true,
+      "boot_device": false,
+      "identify": [
+        {
+          "command": "nvme id-ctrl /dev/nvme0 -o json",
+          "code": 0,
+          "stdout": "{\n  \"vid\":6966,\n  \"ssvid\":6900,\n  \"sn\":\"ATWNVME0001         \",\n  \"mn\":\"QEMU NVMe Ctrl                          \",\n  \"fr\":\"11.1.2  \",\n  \"rab\":6,\n  \"ieee\":5395456,\n  \"cmic\":0,\n  \"mdts\":7,\n  \"cntlid\":0,\n  \"ver\":66560,\n  \"rtd3r\":0,\n  \"rtd3e\":0,\n  \"oaes\":256,\n  \"ctratt\":32768,\n  \"rrls\":0,\n  \"bpcap\":0,\n  \"nssl\":0,\n  \"plsi\":0,\n  \"cntrltype\":1,\n  \"fguid\":\"00000000-0000-0000-0000-000000000000\",\n  \"crdt1\":0,\n  \"crdt2\":0,\n  \"crdt3\":0,\n  \"crcap\":0,\n  \"nvmsr\":0,\n  \"vwci\":0,\n  \"mec\":0,\n  \"oacs\":299,\n  \"acl\":3,\n  \"aerl\":3,\n  \"frmw\":3,\n  \"lpa\":7,\n  \"elpe\":0,\n  \"npss\":0,\n  \"avscc\":0,\n  \"apsta\":0,\n  \"wctemp\":343,\n  \"cctemp\":373,\n  \"mtfa\":0,\n  \"hmpre\":0,\n  \"hmmin\":0,\n  \"tnvmcap\":0,\n  \"unvmcap\":0,\n  \"rpmbs\":0,\n  \"edstt\":0,\n  \"dsto\":0,\n  \"fwug\":0,\n  \"kas\":0,\n  \"hctma\":0,\n  \"mntmt\":0,\n  \"mxtmt\":0,\n  \"sanicap\":0,\n  \"hmminds\":0,\n  \"hmmaxd\":0,\n  \"nsetidmax\":0,\n  \"endgidmax\":0,\n  \"anatt\":0,\n  \"anacap\":0,\n  \"anagrpmax\":0,\n  \"nanagrpid\":0,\n  \"pels\":0,\n  \"domainid\":0,\n  \"kpioc\":0,\n  \"mptfawr\":0,\n  \"megcap\":0,\n  \"tmpthha\":0,\n  \"cqt\":0,\n  \"sqes\":102,\n  \"cqes\":68,\n  \"maxcmd\":0,\n  \"nn\":256,\n  \"oncs\":1885,\n  \"fuses\":0,\n  \"fna\":0,\n  \"vwc\":7,\n  \"awun\":0,\n  \"awupf\":0,\n  \"icsvscc\":0,\n  \"nwpc\":0,\n  \"acwu\":0,\n  \"ocfs\":15,\n  \"sgls\":524289,\n  \"mnan\":0,\n  \"maxdna\":0,\n  \"maxcna\":0,\n  \"oaqd\":0,\n  \"rhiri\":0,\n  \"hirt\":0,\n  \"cmmrtd\":0,\n  \"nmmrtd\":0,\n  \"minmrtg\":0,\n  \"maxmrtg\":0,\n  \"trattr\":0,\n  \"mcudmq\":0,\n  \"mnsudmq\":0,\n  \"mcmr\":0,\n  \"nmcmr\":0,\n  \"mcdqpc\":0,\n  \"subnqn\":\"nqn.2019-08.org.qemu:ATWNVME0001\",\n  \"ioccsz\":0,\n  \"iorcsz\":0,\n  \"icdoff\":0,\n  \"fcatt\":0,\n  \"msdbd\":0,\n  \"ofcs\":0,\n  \"psds\":[\n    {\n      \"max_power\":2500,\n      \"max_power_scale\":0,\n      \"non-operational_state\":0,\n      \"entry_lat\":16,\n      \"exit_lat\":4,\n      \"read_tput\":0,\n      \"read_lat\":0,\n      \"write_tput\":0,\n      \"write_lat\":0,\n      \"idle_power\":0,\n      \"idle_scale\":0,\n      \"active_power\":0,\n      \"active_power_work\":0,\n      \"active_scale\":0,\n      \"emerg_power_fail_recover_time\":0,\n      \"emerg_power_fail_recover_scale\":0,\n      \"force_quiesce_vault_time\":0,\n      \"force_quiesce_vault_scale\":0,\n      \"emerg_power_fail_vault_time\":0,\n      \"emerg_power_fail_vault_scale\":0\n    }\n  ]\n}\n",
+          "stderr": "",
+          "ok": true
+        },
+        {
+          "command": "nvme id-ns /dev/nvme0n1 -o json",
+          "code": 0,
+          "stdout": "{\n  \"nsze\":8388608,\n  \"ncap\":8388608,\n  \"nuse\":8388608,\n  \"nsfeat\":52,\n  \"nlbaf\":7,\n  \"flbas\":0,\n  \"mc\":3,\n  \"dpc\":31,\n  \"dps\":0,\n  \"nmic\":0,\n  \"rescap\":0,\n  \"fpi\":0,\n  \"dlfeat\":9,\n  \"nawun\":0,\n  \"nawupf\":0,\n  \"nacwu\":0,\n  \"nabsn\":0,\n  \"nabo\":0,\n  \"nabspf\":0,\n  \"noiob\":0,\n  \"nvmcap\":0,\n  \"npwg\":0,\n  \"npwa\":0,\n  \"npdg\":7,\n  \"npda\":7,\n  \"nows\":0,\n  \"mssrl\":0,\n  \"mcl\":0,\n  \"msrc\":0,\n  \"kpios\":0,\n  \"nulbaf\":0,\n  \"kpiodaag\":0,\n  \"anagrpid\":0,\n  \"nsattr\":0,\n  \"nvmsetid\":0,\n  \"endgid\":0,\n  \"nguid\":\"00000000000000000000000000000000\",\n  \"eui64\":\"0000000000000000\",\n  \"lbafs\":[\n    {\n      \"ms\":0,\n      \"ds\":9,\n      \"rp\":0\n    },\n    {\n      \"ms\":8,\n      \"ds\":9,\n      \"rp\":0\n    },\n    {\n      \"ms\":16,\n      \"ds\":9,\n      \"rp\":0\n    },\n    {\n      \"ms\":64,\n      \"ds\":9,\n      \"rp\":0\n    },\n    {\n      \"ms\":0,\n      \"ds\":12,\n      \"rp\":0\n    },\n    {\n      \"ms\":8,\n      \"ds\":12,\n      \"rp\":0\n    },\n    {\n      \"ms\":16,\n      \"ds\":12,\n      \"rp\":0\n    },\n    {\n      \"ms\":64,\n      \"ds\":12,\n      \"rp\":0\n    }\n  ],\n  \"vs\":[]\n}\n",
+          "stderr": "",
+          "ok": true
+        }
+      ],
+      "passthrough_ok": true
+    }
+  ],
+  "lsblk_raw": "{\n   \"blockdevices\": [\n      {\n         \"name\": \"loop0\",\n         \"path\": \"/dev/loop0\",\n         \"type\": \"loop\",\n         \"tran\": null,\n         \"model\": null,\n         \"serial\": null,\n         \"size\": 684425216,\n         \"rm\": false,\n         \"hotplug\": false,\n         \"rota\": true,\n         \"label\": null,\n         \"uuid\": null,\n         \"mountpoints\": [\n             \"/run/live/rootfs/filesystem.squashfs\"\n         ]\n      },{\n         \"name\": \"sda\",\n         \"path\": \"/dev/sda\",\n         \"type\": \"disk\",\n         \"tran\": \"sata\",\n         \"model\": \"ATW-TEST-SATA\",\n         \"serial\": \"ATWSATA0001\",\n         \"size\": 4294967296,\n         \"rm\": false,\n         \"hotplug\": false,\n         \"rota\": true,\n         \"label\": null,\n         \"uuid\": null,\n         \"mountpoints\": []\n      },{\n         \"name\": \"sdb\",\n         \"path\": \"/dev/sdb\",\n         \"type\": \"disk\",\n         \"tran\": \"usb\",\n         \"model\": \"QEMU HARDDISK\",\n         \"serial\": \"1-0000:00:03.0-1\",\n         \"size\": 1047527424,\n         \"rm\": true,\n         \"hotplug\": false,\n         \"rota\": true,\n         \"label\": null,\n         \"uuid\": null,\n         \"mountpoints\": [],\n         \"children\": [\n            {\n               \"name\": \"sdb1\",\n               \"path\": \"/dev/sdb1\",\n               \"type\": \"part\",\n               \"tran\": null,\n               \"model\": null,\n               \"serial\": null,\n               \"size\": 978321408,\n               \"rm\": true,\n               \"hotplug\": false,\n               \"rota\": true,\n               \"label\": \"ATW-BOOT\",\n               \"uuid\": \"B96A-6203\",\n               \"mountpoints\": [\n                   \"/run/live/medium\"\n               ]\n            },{\n               \"name\": \"sdb2\",\n               \"path\": \"/dev/sdb2\",\n               \"type\": \"part\",\n               \"tran\": null,\n               \"model\": null,\n               \"serial\": null,\n               \"size\": 67108864,\n               \"rm\": true,\n               \"hotplug\": false,\n               \"rota\": true,\n               \"label\": \"ATECH-DATA\",\n               \"uuid\": \"952cb433-4cda-4b12-86d5-8a77fde44d97\",\n               \"mountpoints\": [\n                   \"/mnt/data\"\n               ]\n            }\n         ]\n      },{\n         \"name\": \"nvme0n1\",\n         \"path\": \"/dev/nvme0n1\",\n         \"type\": \"disk\",\n         \"tran\": \"nvme\",\n         \"model\": \"QEMU NVMe Ctrl\",\n         \"serial\": \"ATWNVME0001\",\n         \"size\": 4294967296,\n         \"rm\": false,\n         \"hotplug\": false,\n         \"rota\": false,\n         \"label\": null,\n         \"uuid\": null,\n         \"mountpoints\": []\n      }\n   ]\n}\n"
+}
