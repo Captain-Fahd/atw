@@ -1,0 +1,7 @@
+/target/
+/build/
+image/live/config/includes.chroot/usr/local/bin/atw
+*.key
+!testdata/**/*-TEST-ONLY*
+.direnv/
+result
