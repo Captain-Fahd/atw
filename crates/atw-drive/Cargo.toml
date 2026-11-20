@@ -1,0 +1,19 @@
+[package]
+name = "atw-drive"
+description = "Drive access for atw: command runner, detection and identify"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[features]
+# Destructive drive code only compiles with this feature. Off by default.
+live = []
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

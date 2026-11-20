@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+chmod 0755 /usr/local/sbin/atw-start /usr/local/bin/atw
+# No need for these on a wipe stick.
+systemctl mask apt-daily.timer apt-daily-upgrade.timer >/dev/null 2>&1 || true

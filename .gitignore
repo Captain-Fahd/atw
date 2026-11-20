@@ -1,0 +1,6 @@
+/target/
+/build/
+*.key
+!testdata/**/*-TEST-ONLY*
+.direnv/
+result
