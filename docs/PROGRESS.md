@@ -20,7 +20,8 @@
 ## Next step (Omar)
 1. `nix develop`, `image/build.sh > build/logs/image-build.log 2>&1`
 2. `sudo image/make-usb.sh /dev/sdX`
-3. Boot ≥3 real laptops (NVMe, SATA, eMMC if any) with Secure Boot on; copy `probe/*.json` to `docs/hw/phase1/`.
+3. Boot real laptops with Secure Boot on; copy `probe/*.json` to `docs/hw/phase1/`. Stick made 21 Nov (make-usb.sh worked).
+   Omar has only 2 NVMe laptops: SATA and eMMC hardware runs are pending (probe them if one comes through intake). STOP 2 needs ≥2 drives per media type.
 
 Next session: analyse those JSONs; if lockdown blocks any tool, stop and set out options. Save real outputs as fixtures in `testdata/fixtures/`.
 
